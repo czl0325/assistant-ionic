@@ -256,16 +256,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var HomePage = (function () {
     function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
+        this.slides = [
+            {
+                image_url: "http://www.86ps.com/imgWeb/psd/hf_fj/FJ_159.jpg"
+            },
+            {
+                image_url: "http://img5.imgtn.bdimg.com/it/u=279872905,3561407218&fm=27&gp=0.jpg",
+            },
+            {
+                image_url: "http://img4.imgtn.bdimg.com/it/u=2266315078,3967665466&fm=200&gp=0.jpg",
+            }
+        ];
     }
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Welcome to Ionic!</h2>\n  <p>\n    This starter project comes with simple tabs-based layout for apps\n    that are going to primarily use a Tabbed UI.\n  </p>\n  <p>\n    Take a look at the <code>src/pages/</code> directory to add or change tabs,\n    update any existing page or create new pages.\n  </p>\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/home/home.html"*/'<!--<ion-header>-->\n  <!--<ion-navbar>-->\n    <!--<ion-title>Home</ion-title>-->\n  <!--</ion-navbar>-->\n<!--</ion-header>-->\n\n<ion-content fullscreen>\n  <div class="top-view">\n    <ion-slides pager>\n      <ion-slide no-margin no-padding *ngFor="let slide of slides">\n        <img [src]="slide.image_url" class="slide-image"/>\n      </ion-slide>\n    </ion-slides>\n  </div>\n  <div class="tool-bar">\n    <ion-buttons no-margin no-padding float-left class="ionbuttons">\n      <button ion-button no-margin no-padding>\n        <ion-icon no-margin no-padding name="ios-contact-outline" class="icon_top">\n        </ion-icon>\n      </button>\n    </ion-buttons>\n    <form float-left (submit)="onSearch($event)" style="background: white; margin-left: 20px; margin-right: 20px">\n      <ion-input placeholder="大家都在搜:讯飞输入法"></ion-input>\n    </form>\n    <ion-buttons no-margin no-padding end class="ionbuttons">\n      <button ion-button no-margin no-padding>\n        <ion-icon no-margin no-padding name="ios-download-outline" class="icon_top">\n        </ion-icon>\n      </button>\n    </ion-buttons>\n  </div>\n\n  <ion-row no-margin no-padding style="background: yellow; height: 60px">\n    <ion-col no-margin no-padding >\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_ranking.png) 10px center no-repeat;\n              background-size:20px 26px;text-indent: 30px; margin: 0 auto; display: inline-block">\n        十大排行\n      </button>\n    </ion-col>\n    <ion-col no-margin no-padding>\n      <a style="padding-left: 40px" >\n        <img src="../../assets/png/home/ic_home_ranking.png"/>\n        十大排行\n      </a>\n    </ion-col>\n    <ion-col no-margin no-padding>\n      <a style="padding-left: 40px" >\n        <img src="../../assets/png/home/ic_home_ranking.png"/>\n        十大排行\n      </a>\n    </ion-col>\n    <ion-col no-margin no-padding>\n      <a style="padding-left: 40px" >\n        <img src="../../assets/png/home/ic_home_ranking.png"/>\n        十大排行\n      </a>\n    </ion-col>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object])
 ], HomePage);
 
+var _a;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
