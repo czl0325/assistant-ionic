@@ -33,4 +33,16 @@ page-home {
     width: 20px;
     height: 30px;
   }
+
+  .div_buttons {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    flex-direction: row;
+
+    .one_button {
+      flex-grow: 1;
+
+    }
+  }
 }
