@@ -25572,4 +25572,5 @@ page-home .div_buttons .one_button {
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  text-align: center;
 }
