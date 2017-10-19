@@ -12,26 +12,26 @@
       </ion-slide>
     </ion-slides>
   </div>
-  <div class="tool-bar">
-    <ion-buttons no-margin no-padding float-left class="ionbuttons">
-      <button ion-button no-margin no-padding>
-        <ion-icon no-margin no-padding name="ios-contact-outline" class="icon_top">
-        </ion-icon>
-      </button>
-    </ion-buttons>
-    <form float-left (submit)="onSearch($event)" style="background: white; margin-left: 20px; margin-right: 20px">
-      <ion-input placeholder="大家都在搜:讯飞输入法"></ion-input>
-    </form>
-    <ion-buttons no-margin no-padding end class="ionbuttons">
-      <button ion-button no-margin no-padding>
-        <ion-icon no-margin no-padding name="ios-download-outline" class="icon_top">
-        </ion-icon>
-      </button>
-    </ion-buttons>
-  </div>
+  <!--<div class="tool-bar">-->
+    <!--<ion-buttons no-margin no-padding float-left class="ionbuttons">-->
+      <!--<button ion-button no-margin no-padding>-->
+        <!--<ion-icon no-margin no-padding name="ios-contact-outline" class="icon_top">-->
+        <!--</ion-icon>-->
+      <!--</button>-->
+    <!--</ion-buttons>-->
+    <!--<form float-left (submit)="onSearch($event)" style="background: white; margin-left: 20px; margin-right: 20px">-->
+      <!--<ion-input placeholder="大家都在搜:讯飞输入法"></ion-input>-->
+    <!--</form>-->
+    <!--<ion-buttons no-margin no-padding end class="ionbuttons">-->
+      <!--<button ion-button no-margin no-padding>-->
+        <!--<ion-icon no-margin no-padding name="ios-download-outline" class="icon_top">-->
+        <!--</ion-icon>-->
+      <!--</button>-->
+    <!--</ion-buttons>-->
+  <!--</div>-->
 
   <div class="div_buttons">
-    <div class="one_button" style="background-color: blue">
+    <div class="one_button">
       <button ion-button clear no-margin no-padding
               style="background: url(../../assets/png/home/ic_home_ranking.png) 0px center no-repeat;
               background-size:20px 26px;text-indent: 30px; margin: 0 auto; display: inline-block; color: black">
@@ -45,7 +45,7 @@
         专题中心
       </button>
     </div>
-    <div class="one_button" style="background-color: yellow">
+    <div class="one_button">
       <button ion-button clear no-margin no-padding
               style="background: url(../../assets/png/home/ic_home_application.png) 0px center no-repeat;
               background-size:20px 26px;text-indent: 30px; margin: 0 auto; color: black">
@@ -60,4 +60,24 @@
       </button>
     </div>
   </div>
+
+  <div >
+    <div class="appItem" >
+      <div class="item_icon" >
+        <img src="assets/png/home/icon_qqmusic.png"/>
+      </div>
+      <div class="item_content">
+        <div style="font-size: 25px">QQ音乐</div>
+        <div>
+          <div style="float: left; width: 100px;font-size: 15px">1889万人在用</div>
+          <div style="float: left; width: 100px;font-size: 15px">5.68M</div>
+        </div>
+        <div style="width: 100%;font-size: 15px">提供最新最权威的各大排行榜单奖项歌曲</div>
+      </div>
+      <div class="item_button">
+        <button ion-button block>下载</button>
+      </div>
+    </div>
+  </div>
+
 </ion-content>

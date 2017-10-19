@@ -25574,3 +25574,31 @@ page-home .div_buttons .one_button {
   flex-grow: 1;
   text-align: center;
 }
+
+page-home .appItem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 70px;
+}
+
+page-home .appItem .item_icon {
+  width: 60px;
+  height: 100%;
+}
+
+page-home .appItem .item_button {
+  width: 70px;
+  height: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+page-home .appItem .item_content {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: #32db64;
+}
