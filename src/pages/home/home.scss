@@ -1,10 +1,13 @@
 page-home {
   .top-view {
     width: 100%;
-    height: 280px;
+    height: 200px;
     position: relative;
 
     .slide-image {
+      position: absolute;
+      left: 0px;
+      top: 0px;
       height: 100%;
       width: 100%;
     }
@@ -47,22 +50,51 @@ page-home {
   }
 
   .appItem {
-    display: flex;
-    height: 70px;
+    //display: flex;
+    height: 100px;
+    width: 100%;
+    border-bottom: solid 1px #ececec;
 
-    .item_icon {
-      width: 60px;
+    .div_left {
+      //flex-grow: 1;
       height: 100%;
-    }
-    .item_button {
-      width: 70px;
-      height: 100%;
-      margin-left: 10px;
-      margin-right: 10px;
+      width: 20%;
+      top: 0px;
+      display: inline-block;
+      text-align: center;
+
+      .img_icon {
+        width: 40px;
+        height: 40px;
+        margin-top: 10px;
+      }
     }
     .item_content {
-      flex-grow: 1;
-      background-color: #32db64;
+      //flex-grow: 1;
+      width: 60%;
+      height: 100%;
+      display: inline-block;
+
+      .text_css {
+        float: left;
+        overflow: hidden;
+        width: 100%;
+        font-size: 15px;
+        line-height: 15px
+      }
+    }
+    .div_button {
+      //width: 20%;
+      height: 100%;
+      text-align: center;
+      display: inline-block;
+
+      .btn_button {
+        width: 60px;
+        height: 30px;
+        //margin: 0 auto;
+        margin-top: 20px;
+      }
     }
   }
 }

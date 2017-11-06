@@ -264,22 +264,26 @@ var HomePage = (function () {
                 image_url: "http://img4.imgtn.bdimg.com/it/u=2266315078,3967665466&fm=200&gp=0.jpg",
             }];
         this.list_apps = [{
-                icon: "assets/png/icon_qqmusic.png",
+                icon: "assets/png/home/icon_qqmusic.png",
+                name: "QQ音乐",
                 person: 1889,
                 size: 5.68,
                 description: "提供最新最权威的各大排行榜单奖项歌曲"
             }, {
-                icon: "assets/png/icon_qqmusic.png",
+                icon: "assets/png/home/icon_wangyi.png",
+                name: "网易新闻",
                 person: 6889,
                 size: 5.68,
                 description: "提供最新最权威的新闻资讯，实时政要新闻"
             }, {
-                icon: "assets/png/icon_qqmusic.png",
+                icon: "assets/png/home/icon_xiecheng.png",
+                name: "携程旅游",
                 person: 6889,
                 size: 10.68,
                 description: "提供最新最权威的旅游资讯，各种票务购买"
             }, {
-                icon: "assets/png/icon_qqmusic.png",
+                icon: "assets/png/home/icon_eleme.png",
+                name: "饿了么",
                 person: 6889,
                 size: 10.68,
                 description: "提供最新附近美食，最快的配送"
@@ -289,12 +293,11 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/home/home.html"*/'<!--<ion-header>-->\n  <!--<ion-navbar>-->\n    <!--<ion-title>Home</ion-title>-->\n  <!--</ion-navbar>-->\n<!--</ion-header>-->\n\n<ion-content fullscreen>\n  <div class="top-view">\n    <ion-slides pager>\n      <ion-slide no-margin no-padding *ngFor="let slide of slides">\n        <img [src]="slide.image_url" class="slide-image"/>\n      </ion-slide>\n    </ion-slides>\n  </div>\n  <!--<div class="tool-bar">-->\n    <!--<ion-buttons no-margin no-padding float-left class="ionbuttons">-->\n      <!--<button ion-button no-margin no-padding>-->\n        <!--<ion-icon no-margin no-padding name="ios-contact-outline" class="icon_top">-->\n        <!--</ion-icon>-->\n      <!--</button>-->\n    <!--</ion-buttons>-->\n    <!--<form float-left (submit)="onSearch($event)" style="background: white; margin-left: 20px; margin-right: 20px">-->\n      <!--<ion-input placeholder="大家都在搜:讯飞输入法"></ion-input>-->\n    <!--</form>-->\n    <!--<ion-buttons no-margin no-padding end class="ionbuttons">-->\n      <!--<button ion-button no-margin no-padding>-->\n        <!--<ion-icon no-margin no-padding name="ios-download-outline" class="icon_top">-->\n        <!--</ion-icon>-->\n      <!--</button>-->\n    <!--</ion-buttons>-->\n  <!--</div>-->\n\n  <div class="div_buttons">\n    <div class="one_button">\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_ranking.png) 0px center no-repeat;\n              background-size:20px 26px;text-indent: 30px; margin: 0 auto; display: inline-block; color: black">\n        十大排行\n      </button>\n    </div>\n    <div class="one_button">\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_project.png) 0px center no-repeat;\n              background-size:20px 26px;text-indent: 30px; margin: 0 auto; display: inline-block; color: black">\n        专题中心\n      </button>\n    </div>\n    <div class="one_button">\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_application.png) 0px center no-repeat;\n              background-size:20px 26px;text-indent: 30px; margin: 0 auto; color: black">\n        最美应用\n      </button>\n    </div>\n    <div class="one_button">\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_market.png) 0px center no-repeat;\n              background-size:20px 26px;text-indent: 30px; margin: 0 auto; display: inline-block; color: black">\n        装机必备\n      </button>\n    </div>\n  </div>\n\n  <div >\n    <div class="appItem" >\n      <div class="item_icon" >\n        <img src="assets/png/home/icon_qqmusic.png"/>\n      </div>\n      <div class="item_content">\n        <div style="font-size: 25px">QQ音乐</div>\n        <div>\n          <div style="float: left; width: 100px;font-size: 15px">1889万人在用</div>\n          <div style="float: left; width: 100px;font-size: 15px">5.68M</div>\n        </div>\n        <div style="width: 100%;font-size: 15px">提供最新最权威的各大排行榜单奖项歌曲</div>\n      </div>\n      <div class="item_button">\n        <button ion-button block>下载</button>\n      </div>\n    </div>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/home/home.html"*/'<!--<ion-header>-->\n<!--<ion-navbar>-->\n<!--<ion-title>Home</ion-title>-->\n<!--</ion-navbar>-->\n<!--</ion-header>-->\n\n<ion-content fullscreen>\n  <div class="top-view">\n    <ion-slides pager>\n      <ion-slide no-margin no-padding *ngFor="let slide of slides">\n        <img [src]="slide.image_url" class="slide-image"/>\n      </ion-slide>\n    </ion-slides>\n  </div>\n  <!--<div class="tool-bar">-->\n  <!--<ion-buttons no-margin no-padding float-left class="ionbuttons">-->\n  <!--<button ion-button no-margin no-padding>-->\n  <!--<ion-icon no-margin no-padding name="ios-contact-outline" class="icon_top">-->\n  <!--</ion-icon>-->\n  <!--</button>-->\n  <!--</ion-buttons>-->\n  <!--<form float-left (submit)="onSearch($event)" style="background: white; margin-left: 20px; margin-right: 20px">-->\n  <!--<ion-input placeholder="大家都在搜:讯飞输入法"></ion-input>-->\n  <!--</form>-->\n  <!--<ion-buttons no-margin no-padding end class="ionbuttons">-->\n  <!--<button ion-button no-margin no-padding>-->\n  <!--<ion-icon no-margin no-padding name="ios-download-outline" class="icon_top">-->\n  <!--</ion-icon>-->\n  <!--</button>-->\n  <!--</ion-buttons>-->\n  <!--</div>-->\n\n  <div class="div_buttons">\n    <div class="one_button">\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_ranking.png) 0px center no-repeat;\n              background-size:20px 26px;text-indent: 20px; margin: 0 auto; display: inline-block; color: black">\n        十大排行\n      </button>\n    </div>\n    <div class="one_button">\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_project.png) 0px center no-repeat;\n              background-size:20px 26px;text-indent: 20px; margin: 0 auto; display: inline-block; color: black">\n        专题中心\n      </button>\n    </div>\n    <div class="one_button">\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_application.png) 0px center no-repeat;\n              background-size:20px 26px;text-indent: 20px; margin: 0 auto; color: black">\n        最美应用\n      </button>\n    </div>\n    <div class="one_button">\n      <button ion-button clear no-margin no-padding\n              style="background: url(../../assets/png/home/ic_home_market.png) 0px center no-repeat;\n              background-size:20px 26px;text-indent: 20px; margin: 0 auto; display: inline-block; color: black">\n        装机必备\n      </button>\n    </div>\n  </div>\n\n  <div>\n    <div class="appItem" *ngFor="let app of list_apps; let i = index">\n      <div class="div_left">\n        <img class="img_icon" src="{{app.icon}}"/>\n      </div>\n      <div class="item_content">\n        <div style="font-size: 25px; width: 100%; margin-top: 8px;\n                    height: 25px; line-height: 25px">{{app.name}}\n        </div>\n        <div style="margin-top: 5px; width: 100%">\n          <div class="text_css">{{app.person}}万人在用</div>\n          <div class="text_css">{{app.size}}M</div>\n          <div style="clear: both"></div>\n        </div>\n        <div style="width: 100%; font-size: 15px;\n                    line-height: 15px; margin-top: 5px;\n                    overflow: hidden;text-overflow:ellipsis;white-space:nowrap;max-width: 200px;">\n          {{app.description}}\n        </div>\n      </div>\n      <div class="div_button">\n        <button ion-button block class="btn_button">下载</button>\n      </div>\n    </div>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], HomePage);
 
-var _a;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
