@@ -1,0 +1,218 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+import { Component, Input, Renderer, ElementRef, ViewEncapsulation, Optional, ComponentFactoryResolver, NgZone, ViewContainerRef, ViewChild, ChangeDetectorRef, ErrorHandler } from '@angular/core';
+import { NavControllerBase, App, Config, Platform, GestureController, DeepLinker, DomController } from 'ionic-angular';
+import { TransitionController } from 'ionic-angular/transitions/transition-controller';
+import { SuperTabs } from './super-tabs';
+var SuperTab = /** @class */ (function (_super) {
+    __extends(SuperTab, _super);
+    function SuperTab(parent, app, config, plt, el, zone, rnd, cfr, gestureCtrl, transCtrl, errorHandler, linker, _dom, cd) {
+        var _this = _super.call(this, parent, app, config, plt, el, zone, rnd, cfr, gestureCtrl, transCtrl, linker, _dom, errorHandler) || this;
+        _this.linker = linker;
+        _this._dom = _dom;
+        _this.cd = cd;
+        /**
+         * Indicates whether the tab has been loaded
+         * @type {boolean}
+         */
+        _this.loaded = false;
+        _this.init = new Promise(function (resolve) { return _this.initResolve = resolve; });
+        return _this;
+    }
+    Object.defineProperty(SuperTab.prototype, "tabTitle", {
+        // TODO find less hacky approach
+        // needed to make Ionic Framework think this is a tabs component... needed for Deeplinking
+        get: function () {
+            return this.title;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SuperTab.prototype, "index", {
+        // needed to make Ionic Framework think this is a tabs component... needed for Deeplinking
+        get: function () {
+            return this.parent.getTabIndexById(this.tabId);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SuperTab.prototype, "_tabId", {
+        get: function () {
+            return this.tabId;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SuperTab.prototype, "swipeBackEnabled", {
+        /**
+         * Enable/disable swipe to go back for iOS
+         * @return {boolean}
+         */
+        get: function () {
+            return this._sbEnabled;
+        },
+        set: function (val) {
+            this._sbEnabled = Boolean(val);
+            this._swipeBackCheck();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SuperTab.prototype, "_vp", {
+        /**
+         * @hidden
+         */
+        set: function (val) {
+            this.setViewport(val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SuperTab.prototype._didEnter = function (view) {
+        if (this.loaded) {
+            _super.prototype._didEnter.call(this, view);
+        }
+    };
+    SuperTab.prototype._willEnter = function (view) {
+        if (this.loaded) {
+            _super.prototype._willEnter.call(this, view);
+        }
+    };
+    SuperTab.prototype.ngOnInit = function () {
+        this.parent.addTab(this);
+    };
+    SuperTab.prototype.ngAfterViewInit = function () {
+        this.initResolve();
+    };
+    SuperTab.prototype.ngOnDestroy = function () {
+        this.destroy();
+    };
+    SuperTab.prototype.setActive = function (active) {
+        if (active) {
+            this.cd.reattach();
+            this.cd.detectChanges();
+        }
+        else if (!active) {
+            this.cd.detach();
+        }
+    };
+    SuperTab.prototype.load = function (load) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(load && !this.loaded)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.init];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.push(this.root, this.rootParams, { animate: false })];
+                    case 2:
+                        _a.sent();
+                        this.loaded = true;
+                        _a.label = 3;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    SuperTab.prototype.setBadge = function (value) {
+        this.badge = value;
+    };
+    SuperTab.prototype.clearBadge = function () {
+        delete this.badge;
+    };
+    SuperTab.prototype.increaseBadge = function (increaseBy) {
+        if (increaseBy === void 0) { increaseBy = 1; }
+        this.badge += increaseBy;
+    };
+    SuperTab.prototype.decreaseBadge = function (decreaseBy) {
+        if (decreaseBy === void 0) { decreaseBy = 1; }
+        this.badge = Math.max(0, this.badge - decreaseBy);
+    };
+    SuperTab.prototype.setWidth = function (width) {
+        this.setElementStyle('width', width + 'px');
+    };
+    SuperTab.prototype.goToRoot = function (opts) {
+        return this.setRoot(this.root, this.rootParams, opts, null);
+    };
+    SuperTab.decorators = [
+        { type: Component, args: [{
+                    selector: 'super-tab',
+                    template: '<div #viewport></div><div class="nav-decor"></div>',
+                    encapsulation: ViewEncapsulation.None
+                },] },
+    ];
+    /** @nocollapse */
+    SuperTab.ctorParameters = function () { return [
+        { type: SuperTabs, },
+        { type: App, },
+        { type: Config, },
+        { type: Platform, },
+        { type: ElementRef, },
+        { type: NgZone, },
+        { type: Renderer, },
+        { type: ComponentFactoryResolver, },
+        { type: GestureController, },
+        { type: TransitionController, },
+        { type: ErrorHandler, },
+        { type: DeepLinker, decorators: [{ type: Optional },] },
+        { type: DomController, },
+        { type: ChangeDetectorRef, },
+    ]; };
+    SuperTab.propDecorators = {
+        'title': [{ type: Input },],
+        'icon': [{ type: Input },],
+        'root': [{ type: Input },],
+        'rootParams': [{ type: Input },],
+        'tabId': [{ type: Input, args: ['id',] },],
+        'badge': [{ type: Input },],
+        'swipeBackEnabled': [{ type: Input },],
+        '_vp': [{ type: ViewChild, args: ['viewport', { read: ViewContainerRef },] },],
+    };
+    return SuperTab;
+}(NavControllerBase));
+export { SuperTab };
+//# sourceMappingURL=super-tab.js.map

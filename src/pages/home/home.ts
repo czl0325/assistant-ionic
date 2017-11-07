@@ -37,6 +37,24 @@ export class HomePage {
     person : 6889,
     size : 10.68,
     description : "提供最新附近美食，最快的配送"
+  },{
+    icon: "assets/png/home/icon_eleme.png",
+    name: "饿了么",
+    person : 6889,
+    size : 10.68,
+    description : "提供最新附近美食，最快的配送"
+  },{
+    icon: "assets/png/home/icon_eleme.png",
+    name: "饿了么",
+    person : 6889,
+    size : 10.68,
+    description : "提供最新附近美食，最快的配送"
+  },{
+    icon: "assets/png/home/icon_eleme.png",
+    name: "饿了么",
+    person : 6889,
+    size : 10.68,
+    description : "提供最新附近美食，最快的配送"
   }];
 
   constructor(public navCtrl: NavController) {

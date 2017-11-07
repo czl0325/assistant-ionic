@@ -1,0 +1,127 @@
+import { Renderer2, ElementRef, EventEmitter, AfterViewInit, OnDestroy, NgZone } from '@angular/core';
+import { Platform } from 'ionic-angular';
+import { SuperTabsConfig } from './super-tabs';
+export declare class SuperTabsContainer implements AfterViewInit, OnDestroy {
+    private el;
+    private rnd;
+    private plt;
+    private ngZone;
+    /**
+     * Component configuration
+     * @type {SuperTabsConfig}
+     */
+    config: SuperTabsConfig;
+    /**
+     * Number of tabs
+     * @type {number}
+     */
+    tabsCount: number;
+    /**
+     * Selected tab index
+     * @type {number}
+     */
+    selectedTabIndex: number;
+    /**
+     * Notifies when a tab is selected
+     * @type {EventEmitter<Object>}
+     */
+    tabSelect: EventEmitter<{
+        index: number;
+        changed: boolean;
+    }>;
+    /**
+     * Notifies when the container is being dragged
+     * @type {EventEmitter<TouchEvent>}
+     */
+    onDrag: EventEmitter<TouchEvent>;
+    /**
+     * Container position
+     * @type {number}
+     */
+    containerPosition: number;
+    /**
+     * The container wrapping all the tabs
+     */
+    container: ElementRef;
+    /**
+     * Single tab width
+     * @type {number}
+     */
+    tabWidth: number;
+    /**
+     * Container width (sum of tab widths)
+     * @type {number}
+     */
+    containerWidth: number;
+    /**
+     * Minimum position on x-axis that the container can be at
+     */
+    private minPosX;
+    /**
+     * Maximum position on x-axis that the container can be at
+     */
+    private maxPosX;
+    /**
+     * Pan gesture controller
+     */
+    private gesture;
+    /**
+     * Boolean indicating whether swiping is globally enabled
+     * @type {boolean}
+     */
+    private globalSwipeEnabled;
+    /**
+     * Set of booleans to indicate whether swiping is enabled on each tab
+     * @type {{}}
+     */
+    private swipeEnabledPerTab;
+    constructor(el: ElementRef, rnd: Renderer2, plt: Platform, ngZone: NgZone);
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    /**
+     * Enable or disable swiping globally
+     * @param enable {boolean} set to true to enable
+     */
+    enableTabsSwipe(enable: boolean): void;
+    /**
+     * Enable or disable swiping when a tab is selected
+     * @param tabIndex {number} tab index
+     * @param enable {boolean} set to true to enable
+     */
+    enableTabSwipe(tabIndex: number, enable: boolean): void;
+    refreshDimensions(): void;
+    getNativeElement(): HTMLElement;
+    private init();
+    /**
+     * Set the selected tab.
+     * Emits a tabSelect event with the tab index, and a boolean indicating whether the tab changed or not.
+     * @param index {number} tab index
+     */
+    private setSelectedTab(index);
+    /**
+     * Calculate the container's width.
+     * It's usually the number of tabs x tab width.
+     */
+    private calculateContainerWidth();
+    /**
+     * Set the container's width via CSS property
+     */
+    private setContainerWidth();
+    /**
+     * Slide to a specific tab
+     * @param index {number} tab index
+     * @param [animate=true] {boolean} set to true to animate
+     */
+    slideTo(index: number, animate?: boolean): void;
+    /**
+     * Moves the container to a specified position
+     * @param [animate=false] {boolean} set to true to animate
+     * @param [positionX] {number} position on x-axis
+     */
+    private moveContainer(animate?, positionX?);
+    /**
+     * Refresh the min and max positions that the container can be at.
+     * The minimum position is always 0, the maximum position is the number of tabs x tab width.
+     */
+    private refreshMinMax();
+}

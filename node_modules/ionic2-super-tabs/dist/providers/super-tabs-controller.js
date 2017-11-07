@@ -1,0 +1,79 @@
+import { Injectable } from '@angular/core';
+var SuperTabsController = /** @class */ (function () {
+    function SuperTabsController() {
+        this.instances = [];
+    }
+    SuperTabsController.prototype.setBadge = function (tabId, value, tabsId) {
+        var instance = this.getInstance(tabsId);
+        instance && instance.setBadge(tabId, value);
+    };
+    SuperTabsController.prototype.clearBadge = function (tabId, tabsId) {
+        var instance = this.getInstance(tabsId);
+        instance && instance.clearBadge(tabId);
+    };
+    SuperTabsController.prototype.increaseBadge = function (tabId, increaseBy, tabsId) {
+        if (increaseBy === void 0) { increaseBy = 1; }
+        var instance = this.getInstance(tabsId);
+        instance && instance.increaseBadge(tabId, increaseBy);
+    };
+    SuperTabsController.prototype.decreaseBadge = function (tabId, decreaseBy, tabsId) {
+        if (decreaseBy === void 0) { decreaseBy = 1; }
+        var instance = this.getInstance(tabsId);
+        instance && instance.decreaseBadge(tabId, decreaseBy);
+    };
+    /**
+     * Enables/disables swiping on a specific tabs instance
+     * @param enable
+     * @param [tabsId]
+     */
+    SuperTabsController.prototype.enableTabsSwipe = function (enable, tabsId) {
+        var instance = this.getInstance(tabsId);
+        instance && instance.enableTabsSwipe(enable);
+    };
+    /**
+     * Enables/disables swiping when this tab is active
+     * @param tabId
+     * @param enable
+     * @param [tabsId]
+     */
+    SuperTabsController.prototype.enableTabSwipe = function (tabId, enable, tabsId) {
+        var instance = this.getInstance(tabsId);
+        instance && instance.enableTabSwipe(tabId, enable);
+    };
+    SuperTabsController.prototype.showToolbar = function (show, tabsId) {
+        var instance = this.getInstance(tabsId);
+        instance && instance.showToolbar(show);
+    };
+    SuperTabsController.prototype.slideTo = function (tabIndexOrId, tabsId) {
+        var instance = this.getInstance(tabsId);
+        instance && instance.slideTo(tabIndexOrId);
+    };
+    /**
+     * @private
+     */
+    SuperTabsController.prototype.registerInstance = function (instance) {
+        this.instances.push(instance);
+    };
+    /**
+     * @private
+     */
+    SuperTabsController.prototype.unregisterInstance = function (id) {
+        var instanceIndex = this.getInstanceIndex(id);
+        if (instanceIndex > -1)
+            this.instances.splice(instanceIndex, 1);
+    };
+    SuperTabsController.prototype.getInstanceIndex = function (id) {
+        return this.instances.findIndex(function (instance) { return instance.id === id; });
+    };
+    SuperTabsController.prototype.getInstance = function (id) {
+        return (!!id && this.instances[this.getInstanceIndex(id)]) || this.instances[0];
+    };
+    SuperTabsController.decorators = [
+        { type: Injectable },
+    ];
+    /** @nocollapse */
+    SuperTabsController.ctorParameters = function () { return []; };
+    return SuperTabsController;
+}());
+export { SuperTabsController };
+//# sourceMappingURL=super-tabs-controller.js.map

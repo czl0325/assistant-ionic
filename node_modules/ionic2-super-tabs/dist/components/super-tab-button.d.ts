@@ -1,0 +1,14 @@
+import { EventEmitter, ElementRef } from '@angular/core';
+export declare class SuperTabButton {
+    private _el;
+    selected: boolean;
+    title: string;
+    icon: string;
+    badge: number;
+    badgeColor: string;
+    color: string;
+    select: EventEmitter<SuperTabButton>;
+    onClick(): void;
+    constructor(_el: ElementRef);
+    getNativeElement(): HTMLElement;
+}

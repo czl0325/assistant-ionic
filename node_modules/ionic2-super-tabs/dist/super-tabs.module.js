@@ -1,0 +1,43 @@
+import { NgModule } from '@angular/core';
+import { IonicModule } from 'ionic-angular';
+import { SuperTab } from './components/super-tab';
+import { SuperTabs } from './components/super-tabs';
+import { SuperTabsController } from './providers/super-tabs-controller';
+import { SuperTabsToolbar } from './components/super-tabs-toolbar';
+import { SuperTabsContainer } from './components/super-tabs-container';
+import { SuperTabButton } from './components/super-tab-button';
+var SuperTabsModule = /** @class */ (function () {
+    function SuperTabsModule() {
+    }
+    SuperTabsModule.forRoot = function () {
+        return {
+            ngModule: SuperTabsModule,
+            providers: [
+                SuperTabsController
+            ]
+        };
+    };
+    SuperTabsModule.decorators = [
+        { type: NgModule, args: [{
+                    declarations: [
+                        SuperTab,
+                        SuperTabs,
+                        SuperTabsToolbar,
+                        SuperTabsContainer,
+                        SuperTabButton
+                    ],
+                    imports: [
+                        IonicModule
+                    ],
+                    exports: [
+                        SuperTab,
+                        SuperTabs
+                    ]
+                },] },
+    ];
+    /** @nocollapse */
+    SuperTabsModule.ctorParameters = function () { return []; };
+    return SuperTabsModule;
+}());
+export { SuperTabsModule };
+//# sourceMappingURL=super-tabs.module.js.map

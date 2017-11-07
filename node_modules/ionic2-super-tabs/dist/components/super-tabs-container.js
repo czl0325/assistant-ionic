@@ -1,0 +1,256 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+import { Component, Renderer2, ElementRef, Input, Output, EventEmitter, ViewChild, ViewEncapsulation, NgZone } from '@angular/core';
+import { Platform } from 'ionic-angular';
+import { SuperTabsPanGesture } from '../super-tabs-pan-gesture';
+var SuperTabsContainer = /** @class */ (function () {
+    function SuperTabsContainer(el, rnd, plt, ngZone) {
+        this.el = el;
+        this.rnd = rnd;
+        this.plt = plt;
+        this.ngZone = ngZone;
+        /**
+         * Number of tabs
+         * @type {number}
+         */
+        this.tabsCount = 0;
+        /**
+         * Notifies when a tab is selected
+         * @type {EventEmitter<Object>}
+         */
+        this.tabSelect = new EventEmitter();
+        /**
+         * Notifies when the container is being dragged
+         * @type {EventEmitter<TouchEvent>}
+         */
+        this.onDrag = new EventEmitter();
+        // View bindings
+        /**
+         * Container position
+         * @type {number}
+         */
+        this.containerPosition = 0;
+        /**
+         * Single tab width
+         * @type {number}
+         */
+        this.tabWidth = 0;
+        /**
+         * Container width (sum of tab widths)
+         * @type {number}
+         */
+        this.containerWidth = 0;
+        /**
+         * Boolean indicating whether swiping is globally enabled
+         * @type {boolean}
+         */
+        this.globalSwipeEnabled = true;
+        /**
+         * Set of booleans to indicate whether swiping is enabled on each tab
+         * @type {{}}
+         */
+        this.swipeEnabledPerTab = {};
+    }
+    SuperTabsContainer.prototype.ngAfterViewInit = function () {
+        this.init();
+    };
+    SuperTabsContainer.prototype.ngOnDestroy = function () {
+        this.gesture && this.gesture.destroy();
+    };
+    /**
+     * Enable or disable swiping globally
+     * @param enable {boolean} set to true to enable
+     */
+    SuperTabsContainer.prototype.enableTabsSwipe = function (enable) {
+        this.globalSwipeEnabled = enable;
+    };
+    /**
+     * Enable or disable swiping when a tab is selected
+     * @param tabIndex {number} tab index
+     * @param enable {boolean} set to true to enable
+     */
+    SuperTabsContainer.prototype.enableTabSwipe = function (tabIndex, enable) {
+        this.swipeEnabledPerTab[tabIndex] = enable;
+    };
+    SuperTabsContainer.prototype.refreshDimensions = function () {
+        this.calculateContainerWidth();
+        this.setContainerWidth();
+        this.refreshMinMax();
+    };
+    SuperTabsContainer.prototype.getNativeElement = function () {
+        return this.el.nativeElement;
+    };
+    SuperTabsContainer.prototype.init = function () {
+        var _this = this;
+        this.refreshDimensions();
+        this.gesture = new SuperTabsPanGesture(this.plt, this.container.nativeElement, this.config, this.rnd);
+        this.gesture.onMove = function (delta) {
+            if (_this.globalSwipeEnabled === false)
+                return;
+            if (_this.swipeEnabledPerTab[_this.selectedTabIndex] === false)
+                return;
+            if ((_this.containerPosition === _this.maxPosX && delta >= 0) || (_this.containerPosition === _this.minPosX && delta <= 0))
+                return;
+            _this.containerPosition += delta;
+            _this.plt.raf(function () {
+                _this.onDrag.emit();
+                _this.moveContainer();
+            });
+        };
+        this.gesture.onEnd = function (shortSwipe, shortSwipeDelta) {
+            if (_this.globalSwipeEnabled === false)
+                return;
+            if (_this.swipeEnabledPerTab[_this.selectedTabIndex] === false)
+                return;
+            // get tab index based on container position
+            var tabIndex = Math.round(_this.containerPosition / _this.tabWidth);
+            // handle short swipes
+            // only short swipe if we didn't change tab already in this gesture
+            (tabIndex === _this.selectedTabIndex) && shortSwipe && ((shortSwipeDelta < 0 && tabIndex++) || (shortSwipeDelta > 0 && tabIndex--));
+            // get location based on tab index
+            var position = Math.max(_this.minPosX, Math.min(_this.maxPosX, tabIndex * _this.tabWidth));
+            tabIndex = position / _this.tabWidth;
+            // move container if we changed position
+            if (position !== _this.containerPosition) {
+                _this.plt.raf(function () {
+                    return _this.moveContainer(true, position)
+                        .then(function () {
+                        return _this.ngZone.run(function () { return _this.setSelectedTab(tabIndex); });
+                    });
+                });
+            }
+            else
+                _this.setSelectedTab(tabIndex);
+        };
+    };
+    /**
+     * Set the selected tab.
+     * Emits a tabSelect event with the tab index, and a boolean indicating whether the tab changed or not.
+     * @param index {number} tab index
+     */
+    SuperTabsContainer.prototype.setSelectedTab = function (index) {
+        this.tabSelect.emit({ index: index, changed: index !== this.selectedTabIndex });
+        this.selectedTabIndex = index;
+    };
+    /**
+     * Calculate the container's width.
+     * It's usually the number of tabs x tab width.
+     */
+    SuperTabsContainer.prototype.calculateContainerWidth = function () {
+        this.containerWidth = this.tabWidth * this.tabsCount;
+    };
+    /**
+     * Set the container's width via CSS property
+     */
+    SuperTabsContainer.prototype.setContainerWidth = function () {
+        this.rnd.setStyle(this.container.nativeElement, 'width', this.containerWidth + 'px');
+    };
+    /**
+     * Slide to a specific tab
+     * @param index {number} tab index
+     * @param [animate=true] {boolean} set to true to animate
+     */
+    SuperTabsContainer.prototype.slideTo = function (index, animate) {
+        var _this = this;
+        if (animate === void 0) { animate = true; }
+        this.plt.raf(function () { return _this.moveContainer(animate, index * _this.tabWidth); });
+    };
+    /**
+     * Moves the container to a specified position
+     * @param [animate=false] {boolean} set to true to animate
+     * @param [positionX] {number} position on x-axis
+     */
+    SuperTabsContainer.prototype.moveContainer = function (animate, positionX) {
+        if (animate === void 0) { animate = false; }
+        return __awaiter(this, void 0, void 0, function () {
+            var el;
+            return __generator(this, function (_a) {
+                el = this.container.nativeElement;
+                if (animate) {
+                    if (el.style[this.plt.Css.transform].indexOf('all') === -1) {
+                        this.rnd.setStyle(el, this.plt.Css.transition, "all " + this.config.transitionDuration + "ms " + this.config.transitionEase);
+                    }
+                    this.rnd.setStyle(el, this.plt.Css.transform, "translate3d(" + -1 * positionX + "px, 0, 0)");
+                    this.containerPosition = positionX;
+                }
+                else {
+                    if (positionX) {
+                        this.containerPosition = positionX;
+                    }
+                    if (el.style[this.plt.Css.transform] !== 'initial') {
+                        this.rnd.setStyle(el, this.plt.Css.transition, 'initial');
+                    }
+                    this.containerPosition = Math.max(this.minPosX, Math.min(this.maxPosX, this.containerPosition));
+                    this.rnd.setStyle(el, this.plt.Css.transform, "translate3d(" + -1 * this.containerPosition + "px, 0, 0)");
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    /**
+     * Refresh the min and max positions that the container can be at.
+     * The minimum position is always 0, the maximum position is the number of tabs x tab width.
+     */
+    SuperTabsContainer.prototype.refreshMinMax = function () {
+        this.minPosX = 0;
+        this.maxPosX = (this.tabsCount - 1) * this.tabWidth;
+    };
+    SuperTabsContainer.decorators = [
+        { type: Component, args: [{
+                    selector: 'super-tabs-container',
+                    template: '<div #container><ng-content></ng-content></div>',
+                    encapsulation: ViewEncapsulation.None
+                },] },
+    ];
+    /** @nocollapse */
+    SuperTabsContainer.ctorParameters = function () { return [
+        { type: ElementRef, },
+        { type: Renderer2, },
+        { type: Platform, },
+        { type: NgZone, },
+    ]; };
+    SuperTabsContainer.propDecorators = {
+        'config': [{ type: Input },],
+        'tabsCount': [{ type: Input },],
+        'selectedTabIndex': [{ type: Input },],
+        'tabSelect': [{ type: Output },],
+        'onDrag': [{ type: Output },],
+        'container': [{ type: ViewChild, args: ['container',] },],
+    };
+    return SuperTabsContainer;
+}());
+export { SuperTabsContainer };
+//# sourceMappingURL=super-tabs-container.js.map

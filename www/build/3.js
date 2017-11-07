@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 267:
+/***/ 292:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdhibitionPageModule", function() { return AdhibitionPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameWebgamePageModule", function() { return GameWebgamePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adhibition__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__game_webgame__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdhibitionPageModule = (function () {
-    function AdhibitionPageModule() {
+var GameWebgamePageModule = (function () {
+    function GameWebgamePageModule() {
     }
-    return AdhibitionPageModule;
+    return GameWebgamePageModule;
 }());
-AdhibitionPageModule = __decorate([
+GameWebgamePageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__adhibition__["a" /* AdhibitionPage */],
+            __WEBPACK_IMPORTED_MODULE_2__game_webgame__["a" /* GameWebgamePage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adhibition__["a" /* AdhibitionPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__game_webgame__["a" /* GameWebgamePage */]),
         ],
     })
-], AdhibitionPageModule);
+], GameWebgamePageModule);
 
-//# sourceMappingURL=adhibition.module.js.map
+//# sourceMappingURL=game-webgame.module.js.map
 
 /***/ })
 

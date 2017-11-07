@@ -5,14 +5,26 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-navbar color="gametab">
+    <ion-buttons style="display: inline-block">
+      <img src="assets/png/game/ic_game_code.png" style="width: 20px; height: 20px">
+    </ion-buttons>
+    <ion-searchbar style="display: inline-block">
 
-  <ion-navbar>
-    <ion-title>game</ion-title>
+    </ion-searchbar>
+    <ion-buttons style="display: inline-block">
+      <img src="assets/png/game/ic_game_code.png" style="width: 20px; height: 20px">
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content fullscreen>
+  <super-tabs toolbarBackground="#29b6f6" toolbarColor="white" toolbarBackground="gametab">
+    <super-tab [root]="gameBoutique" title="精品"></super-tab>
+    <super-tab [root]="gameWebgame" title="网游"></super-tab>
+    <super-tab [root]="gameSingle" title="单机"></super-tab>
+    <super-tab [root]="gameClassify" title="分类"></super-tab>
+  </super-tabs>
 
 </ion-content>
