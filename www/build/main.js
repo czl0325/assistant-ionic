@@ -129,10 +129,9 @@ GameBoutiquePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-game-boutique',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game-boutique/game-boutique.html"*/'<!--\n  Generated template for the GameBoutiquePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content fullscreen>\n  <div class="appItem" *ngFor="let app of list_apps; let i = index">\n    <div class="div_left">\n      <img class="img_icon" src="{{app.icon}}"/>\n    </div>\n    <div class="item_content">\n      <div style="font-size: 25px; width: 100%; margin-top: 8px;\n                    height: 25px; line-height: 25px">{{app.name}}\n      </div>\n      <div style="margin-top: 5px; width: 100%">\n        <div class="text_css">{{app.person}}万人在用</div>\n        <div class="text_css" style="margin-left: 10px">{{app.size}}M</div>\n        <div style="clear: both"></div>\n      </div>\n      <div class="desc_css">\n        {{app.description}}\n      </div>\n    </div>\n    <div class="div_button">\n      <button ion-button block class="btn_button">下载</button>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game-boutique/game-boutique.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
 ], GameBoutiquePage);
 
-var _a, _b;
 //# sourceMappingURL=game-boutique.js.map
 
 /***/ }),
@@ -218,10 +217,9 @@ GameClassifyPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-game-classify',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game-classify/game-classify.html"*/'<!--\n  Generated template for the GameClassifyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content fullscreen>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game-classify/game-classify.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
 ], GameClassifyPage);
 
-var _a, _b;
 //# sourceMappingURL=game-classify.js.map
 
 /***/ }),
@@ -307,10 +305,9 @@ GameSinglePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-game-single',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game-single/game-single.html"*/'<!--\n  Generated template for the GameSinglePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content fullscreen>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game-single/game-single.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
 ], GameSinglePage);
 
-var _a, _b;
 //# sourceMappingURL=game-single.js.map
 
 /***/ }),
@@ -396,10 +393,9 @@ GameWebgamePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-game-webgame',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game-webgame/game-webgame.html"*/'<!--\n  Generated template for the GameWebgamePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content fullscreen>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game-webgame/game-webgame.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
 ], GameWebgamePage);
 
-var _a, _b;
 //# sourceMappingURL=game-webgame.js.map
 
 /***/ }),
@@ -452,7 +448,7 @@ var GamePage = (function () {
 }());
 GamePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-game',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game.html"*/'<!--\n  Generated template for the GamePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="gametab">\n    <ion-buttons style="display: inline-block">\n      <img src="assets/png/game/ic_game_code.png" style="width: 20px; height: 20px">\n    </ion-buttons>\n    <ion-searchbar style="display: inline-block">\n\n    </ion-searchbar>\n    <ion-buttons style="display: inline-block">\n      <img src="assets/png/game/ic_game_code.png" style="width: 20px; height: 20px">\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content fullscreen>\n  <super-tabs toolbarBackground="#29b6f6" toolbarColor="white" toolbarBackground="gametab">\n    <super-tab [root]="gameBoutique" title="精品"></super-tab>\n    <super-tab [root]="gameWebgame" title="网游"></super-tab>\n    <super-tab [root]="gameSingle" title="单机"></super-tab>\n    <super-tab [root]="gameClassify" title="分类"></super-tab>\n  </super-tabs>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game.html"*/,
+        selector: 'page-game',template:/*ion-inline-start:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game.html"*/'<!--\n  Generated template for the GamePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="gametab">\n    <ion-buttons style="display: inline-block">\n      <img src="assets/png/game/ic_game_code.png" style="width: 20px; height: 20px">\n    </ion-buttons>\n    <ion-searchbar style="display: inline-block; width: 93%">\n\n    </ion-searchbar>\n    <ion-buttons style="display: inline-block">\n      <img src="assets/png/game/ic_game_code.png" style="width: 20px; height: 20px">\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content fullscreen>\n  <super-tabs class="super-tab-css" toolbarBackground="#29b6f6" toolbarColor="white" toolbarBackground="gametab">\n    <super-tab [root]="gameBoutique" title="精品"></super-tab>\n    <super-tab [root]="gameWebgame" title="网游"></super-tab>\n    <super-tab [root]="gameSingle" title="单机"></super-tab>\n    <super-tab [root]="gameClassify" title="分类"></super-tab>\n  </super-tabs>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zhaoliangchen/Desktop/assistant-ionic/src/pages/game/game.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
 ], GamePage);

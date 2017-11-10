@@ -30655,6 +30655,10 @@ super-tabs-toolbar > ion-toolbar.toolbar.scroll-tabs .tab-buttons-container .ind
   color: #c8c8c8;
 }
 
+page-game .super-tab-css .scroll-content {
+  padding-bottom: 0px !important;
+}
+
 page-game-boutique .appItem {
   height: 100px;
   width: 100%;
